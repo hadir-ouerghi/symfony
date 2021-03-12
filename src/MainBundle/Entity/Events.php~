@@ -1,0 +1,82 @@
+<?php
+
+namespace MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Events
+ *
+ * @ORM\Table(name="events", indexes={@ORM\Index(name="nom_org", columns={"nom_org"})})
+ * @ORM\Entity
+ */
+class Events
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_ev", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idEv;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_org", type="string", length=50, nullable=false)
+     */
+    private $nomOrg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_event", type="string", length=50, nullable=false)
+     */
+    private $nomEvent;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieu", type="string", length=50, nullable=false)
+     */
+    private $lieu;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nb_place", type="integer", nullable=false)
+     */
+    private $nbPlace;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dt_event", type="date", nullable=false)
+     */
+    private $dtEvent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prix", type="integer", nullable=false)
+     */
+    private $prix;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=50, nullable=false)
+     */
+    private $etat;
+
+
+}
+

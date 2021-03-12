@@ -1,0 +1,52 @@
+Reservation:
+    type: entity
+    table: reservation
+    indexes:
+        id_ev:
+            columns:
+                - id_ev
+        id_par:
+            columns:
+                - id_par
+    id:
+        idTicket:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_ticket
+            generator:
+                strategy: IDENTITY
+    fields:
+        idEv:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_ev
+        idPar:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_par
+        nom:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        prenom:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        image:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

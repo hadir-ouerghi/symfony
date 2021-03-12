@@ -1,0 +1,44 @@
+Participant:
+    type: entity
+    table: participant
+    id:
+        idPar:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_par
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        prenom:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        tel:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        solde:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+    lifecycleCallbacks: {  }

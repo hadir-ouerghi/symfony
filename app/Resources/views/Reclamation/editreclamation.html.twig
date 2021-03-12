@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block test %}
+{% endblock %}
+{% block content %}
+<script src="{{ asset ('jquery/jquery-3.3.1.js') }}"></script>
+<section id="intro1" class="clearfix">
+</section>
+    <div style="height: 50px"></div>
+
+<div>
+    <section class="our-speaker-area bg-img bg-gradient-overlay section-padding-100-60" style="background-image: url({{ asset('FrontTemp/img/bg-img/3.jpg') }});">
+        <div class="container">
+{{ form_start(form) }}
+            {{form_widget(form.contenu, {'attr': {'class': "ckeditor",'placeholder': "contenu",'required':"true"}})}}
+            <div style="height: 5px"></div>
+
+            {{form_widget(form.type, {'attr': {'class': "form-control"}})}}
+            <div style="height: 5px"></div>
+
+            {{form_widget(form.idEvent, {'attr': {'class': "form-control"}})}}
+            <div style="height: 5px"></div>
+            <div style="padding-left: 350px">
+
+                {{form_widget(form.save, {})}}
+
+            </div>
+            {{form_widget(form.save, {})}}
+
+{{ form_end(form) }}
+</div>
+    </section>
+</div>
+{% endblock %}

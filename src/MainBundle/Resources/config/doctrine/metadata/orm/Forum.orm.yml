@@ -1,0 +1,45 @@
+Forum:
+    type: entity
+    table: forum
+    id:
+        idArticle:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_article
+            generator:
+                strategy: IDENTITY
+    fields:
+        idUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_user
+        titre:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        image:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: false
+            length: 1000
+            options:
+                fixed: false
+        date:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

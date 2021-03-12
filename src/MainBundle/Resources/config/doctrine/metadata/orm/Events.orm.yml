@@ -1,0 +1,66 @@
+Events:
+    type: entity
+    table: events
+    indexes:
+        nom_org:
+            columns:
+                - nom_org
+    id:
+        idEv:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_ev
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomOrg:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: nom_org
+        nomEvent:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: nom_event
+        lieu:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        nbPlace:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: nb_place
+        dtEvent:
+            type: date
+            nullable: false
+            column: dt_event
+        prix:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        description:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        etat:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

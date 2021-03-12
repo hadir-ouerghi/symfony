@@ -1,0 +1,109 @@
+{% extends 'baseback.html.twig' %}
+{% block stylesheets %}
+
+    {{ parent() }}
+<link href="{{ asset('back/assets/vendors/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
+      type="text/css"/>
+
+    {% endblock %}
+    {% block content %}
+        <div style="height: 50px        "></div>
+<div class="kt-portlet__body" id="Rec" style="padding-left: 150px  ;width: 850px" >
+
+    <script src="{{ asset ('jquery/jquery-3.3.1.js') }}"></script>
+    <!--begin: Datatable -->
+    <table class="table table-hover" id="idr" >
+        <thead>
+
+        </thead>
+        <tbody >
+        {% for post in posts %}
+            <label id="label2" num="{{ post.id }}" style="display: none;"> </label>
+            <tr class="table-active"   style="background-color:#212529" >
+
+
+                <td align="center" style="color: white">Contenu : {{ post.contenu |raw }}    </td>
+
+
+                <td align="center" style="color: white">Etat : {{ post.etat }}  </td>
+            </tr>
+<tr></tr>
+            <tr class="table-active"  style="background-color:#212529"  >
+
+                <td align="center" style="color: white">Type : {{ post.type }}  </td>
+
+
+
+
+                <td align="center" style="color: white">Date :{{ post.date }}       </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>no records !!!</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+    <div class="form-group">
+        <input type="text" class="form-control"  placeholder="Tapez la reponse" id ="rep">
+    </div>
+    <div class="text-center" >
+    <select  style="width: 700px" class="custom-select" id="et">
+        <option value="Choix">Changer l'etat de la reclamation</option>
+
+        <option value="En cours">En cours</option>
+
+        <option value="Traitée">Traitée</option>
+    </select>
+    </div>
+    <div style="height: 10px">
+
+    </div>
+    <div style="padding-left: 310px">
+    <button  class="btn" type="submit" id ="save" style="background-color:#212529; height: 45px"> <p style="color: white">  Enregister </p></button>
+    </div>
+        <!--end: Datatable -->
+<script>
+    $("#save").click(function () {
+
+        var label = $('#label2');
+        var id = label.attr('num');
+
+        var rep = $("#rep").val();
+
+        var etat=$('#et option:selected').text();
+        if(!etat.match('Choix')) {
+            $.ajax({
+                type: 'POST',
+                url: '{{ absolute_url(asset('')) }}app_dev.php/main/admin/SaveRec',
+                data: {id: id, rep: rep, etat: etat},
+                success: window.location.reload()
+            })
+        }
+
+    })
+
+
+
+
+</script>
+
+
+
+</div>
+
+    {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('back/assets/vendors/custom/datatables/datatables.bundle.js') }}"
+            type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#kt_table_2').DataTable();
+        });
+    </script>
+{% endblock %}
+

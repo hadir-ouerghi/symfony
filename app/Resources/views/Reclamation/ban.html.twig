@@ -1,0 +1,91 @@
+{% extends 'baseback.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('jQuery/datatables.bundle.css') }}" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+
+    <script src="{{ asset('BackTemp/plugins/jquery/jquery.min.js') }}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{{ asset('BackTemp/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset ('jQuery/jquery-3.3.1.js') }}"></script>
+
+
+{% endblock %}
+{% block content %}
+    <table class="table table-hover" id="idr" >
+        <thead>
+        <tr>
+            <th scope="reponse" >id</th>
+
+            <th scope="reponse">Les evenements mal organisés </th>
+            <th> bannir </th>
+
+
+        </tr>
+        </thead>
+        <tbody >
+        {% for post in posts %}
+            <tr class="table-active"   >
+                <td >{{ post.idd }}</td>
+                <td>{{ post.ev }}</td>
+                <td> <a class="btn-danger" href="{{ absolute_url(asset('')) }}app_dev.php/main/admin/Bloq/{{ post.idd}}"> <p style="color: white"> bannir</p></a></td>
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td>no records !!!</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <script>
+        $(document).ready(function () {
+
+
+            $(function () {
+                $("#idr tbody tr").click(function () {
+                    var tableData = $(this).children("td").map(
+                        function () {
+                            return $(this).text();
+                        }
+                    ).get();
+                    var id = tableData[0];
+                    alert('oui');
+                    /* $.ajax(
+                         {
+                             type: 'POST',
+                             url: '{{ absolute_url(asset('')) }}app_dev.php/main/admin/Bloq',
+                        data: {id:id},
+                        success:
+                            alert('organisateur bloqué avec succes ')
+
+
+                    }
+                )*/
+
+
+                });
+            });
+        });
+    </script>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('jQuery/datatables.bundle.js') }}"
+            type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
+
+
+
+{% endblock %}

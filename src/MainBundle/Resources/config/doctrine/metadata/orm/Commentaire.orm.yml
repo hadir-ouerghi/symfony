@@ -1,0 +1,44 @@
+Commentaire:
+    type: entity
+    table: commentaire
+    indexes:
+        id_article:
+            columns:
+                - id_article
+    id:
+        idComm:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_comm
+            generator:
+                strategy: IDENTITY
+    fields:
+        idArticle:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_article
+        idUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_user
+        text:
+            type: string
+            nullable: false
+            length: 1000
+            options:
+                fixed: false
+            column: Text
+        date:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,46 @@
+main_events:
+    resource: "@MainBundle/Resources/config/routing/events.yml"
+    prefix:   /event
+admin:
+    path:     /admin
+    defaults: { _controller: "MainBundle:Events:admin" }
+show_front_Reclamation:
+    path:     /showreclamation
+    defaults: { _controller: MainBundle:Reclamation:showreclamation }
+
+CreateR:
+    path:     /CreateR
+    defaults: { _controller: MainBundle:Reclamation:CreateR }
+_DeleteR:
+    path:     /DeleteR/{id}
+    defaults: { _controller: MainBundle:Reclamation:DeleteRec }
+_EditR:
+    path:     /EditR/{id}
+    defaults: { _controller: MainBundle:Reclamation:EditRec }
+ShowRAdm:
+    path:     /admin/ShowRAdm
+    defaults: { _controller: MainBundle:Reclamation:ShowRAdm }
+ShowEAdm:
+    path:     /admin/ShowEAdm
+    defaults: { _controller: MainBundle:Reclamation:ShowEAdm }
+
+ShowREmp:
+    path:     /admin/ShowREmp
+    defaults: { _controller: MainBundle:Reclamation:ShowREmp }
+ShowDetRec:
+    path:     /admin/ShowDetRec
+    defaults: { _controller: MainBundle:Reclamation:ShowDetRec }
+
+SaveRec:
+    path:     /admin/SaveRec
+    defaults: { _controller: MainBundle:Reclamation:SaveRec }
+
+TriRec:
+    path:     /admin/TriRec
+    defaults: { _controller: MainBundle:Reclamation:TriRec }
+Ban:
+    path:     /admin/Ban
+    defaults: { _controller: MainBundle:Reclamation:Ban }
+Bloq:
+    path:     /admin/Bloq/{id}
+    defaults: { _controller: MainBundle:Reclamation:Bloq }

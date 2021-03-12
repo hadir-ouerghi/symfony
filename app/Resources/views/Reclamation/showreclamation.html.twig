@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+{% block test %}
+{% endblock %}
+{% block content %}
+    <script src="{{ asset ('jquery/jquery-3.3.1.js') }}"></script>
+    <section class="our-speaker-area bg-img bg-gradient-overlay section-padding-100-60" style="background-image: url({{ asset('FrontTemp/img/bg-img/3.jpg') }});">
+        <div class="container">
+
+
+            <!-- Single Speaker Area -->
+            <div id ="div" style="margin-top: 45px"  >
+                <div class="text-center">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="contenu">contenu</th>
+                            <th scope="etat">etat</th>
+                            <th scope="type">type</th>
+                            <th scope="reponse">reponse</th>
+                            <th scope="date">date</th>
+                            <th scope="action">action</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for post in posts %}
+                            <tr class="table-active">
+                                <td>{{ post.contenu|raw }}</td>
+                                <td>{{ post.etat }}</td>
+                                <td>{{ post.type }}</td>
+                                <td>{{ post.reponse }}</td>
+                                <td>{{ post.date|date('Y-m-d') }}</td>
+                                <td>
+                                    <a href="{{ absolute_url(asset('')) }}app_dev.php/main/EditR/{{ post.id}}" class="btn confer-btn mt-3 mt-lg-0 ml-3 ml-lg-5">Edit</a>
+                                    <a href="{{ absolute_url(asset('')) }}app_dev.php/main/DeleteR/{{ post.id}}" class="btn confer-btn mt-3 mt-lg-0 ml-3 ml-lg-5">Delete</a>
+                                </td>
+
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td>no records !!!</td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-12">
+                <div class="more-speaker-btn text-center mt-20 mb-40 wow fadeInUp" data-wow-delay="300ms">
+                    <a class="btn confer-btn-white" href="{{ path('CreateR') }}">ajouter une reclamation <i class="zmdi zmdi-long-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
